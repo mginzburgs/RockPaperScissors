@@ -83,10 +83,11 @@ function playRound(h, c) {
   }
 }
 
-function playGame(times) {
+function playGame() {
+  let times = window.prompt("How many games are we playing?");
   for (let i = 0; i < times; i++) {
     playRound(getHumanChoice(), getComputerChoice());
   }
 }
 
-playGame(10);
+playGame();
