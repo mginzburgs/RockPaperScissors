@@ -1,0 +1,110 @@
+html {
+  font-family: "Futura", "Helvetica", sans-serif;
+}
+
+body {
+  background-color: rgb(255, 255, 255);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+}
+
+.page__wrapper {
+  width: 900px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+}
+.footer,
+.header {
+  width: 100%;
+  background-color: rgb(119, 49, 216);
+  text-align: center;
+}
+
+.header__heading {
+  color: white;
+  font-size: 28px;
+  font-weight: 300;
+}
+
+.main {
+  padding: 40px;
+}
+
+.main__container {
+  background-color: rgb(119, 49, 216);
+  border-radius: 10px;
+  padding: 20px;
+}
+
+.main__game {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 30px;
+  gap: 20px;
+}
+
+.game__choise-list {
+  display: flex;
+  justify-content: space-around;
+  min-width: 300px;
+  gap: 40px;
+}
+
+.game__score {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+
+.game__score-heading {
+  color: white;
+  font-size: 28px;
+  font-weight: 300;
+  margin: 0;
+}
+
+.game__score-container {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  height: 100px;
+}
+.game__score-score {
+  font-size: 24px;
+  color: white;
+  font-weight: 700;
+  border: 2px solid white;
+  border-radius: 10px;
+  padding: 30px;
+}
+
+button {
+  border: 2px solid white;
+  padding: 10px 30px;
+  border-radius: 5px;
+  background-color: rgb(119, 49, 216);
+  color: white;
+  font-weight: 700;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: rgb(157, 115, 215);
+}
+
+.footer {
+  color: white;
+}
