@@ -1,3 +1,5 @@
+let resultText = document.querySelector(".result");
+
 function getComputerChoice() {
   let rand = Math.random();
   if (rand >= 0.67) {
@@ -34,60 +36,84 @@ function score() {
   }
   `;
 }
+
 function playRound(h, c) {
+  resultText.innerText = "";
   let human = h.toUpperCase();
   let computer = c.toUpperCase();
 
   if (human === computer) {
-    console.log(`"DRAW"
-  ${score()}`);
+    resultText.innerText = "DRAW";
 
     return;
   }
 
   if (computer === "ROCK") {
     if (human === "PAPER") {
-      console.log(`"PAPER BEATS ROCK, YOU WIN !"
-          ${score()}`);
+      resultText.innerText = "PAPER BEATS ROCK, YOU WIN !";
       return (humanScore = humanScore + 1);
     } else {
-      console.log(`"ROCK BEATS SCISSORS, YOU LOSE"
-              ${score()}`);
+      resultText.innerText = "ROCK BEATS SCISSORS, YOU LOSE !";
 
       return (computerScore += 1);
     }
   } else if (computer === "PAPER") {
     if (human === "SCISSORS") {
-      console.log(`"SCISSORS BEAT PAPER, YOU WIN !"
-              ${score()}`);
+      resultText.innerText = "SCISSORS BEAT PAPER, YOU WIN !";
 
       return (humanScore += 1);
     } else {
-      console.log(`"PAPER BEATS ROCK, YOU LOSE !"
-              ${score()}`);
+      resultText.innerText = "PAPER BEATS ROCK, YOU LOSE !";
 
       return (computerScore += 1);
     }
   } else if (computer === "SCISSORS") {
     if (human === "ROCK") {
-      console.log(`"ROCK BEATS SCISSORS, YOU WIN !"
-              ${score()}`);
+      resultText.innerText = "ROCK BEATS SCISSORS, YOU WIN !";
 
       return (humanScore += 1);
     } else {
-      console.log(`"SCISSORS BEAT PAPER, YOU LOSE !"
-              ${score()}`);
+      resultText.innerText = "SCISSORS BEAT PAPER, YOU LOSE !";
 
       return (computerScore += 1);
     }
   }
 }
 
-function playGame() {
-  let times = window.prompt("How many games are we playing?");
-  for (let i = 0; i < times; i++) {
-    playRound(getHumanChoice(), getComputerChoice());
+function getWinner() {
+  let hscore = humanScore;
+  let cscore = computerScore;
+
+  if (hscore >= 5 && hscore > cscore) {
+    humanScore = 0;
+    computerScore = 0;
+    alert("YOU WIN");
+  } else if (cscore >= 5 && cscore > hscore) {
+    humanScore = 0;
+    computerScore = 0;
+    alert("YOU LOSE");
   }
 }
 
-// playGame();
+function playGame() {
+  playRound(getHumanChoice(), getComputerChoice());
+  getWinner();
+}
+
+// elements
+
+let humanShowScore = document.querySelector(
+  ".game__score-left>.game__score-score"
+);
+
+let computerShowScore = document.querySelector(
+  ".game__score-right>.game__score-score"
+);
+
+let buttons = document.querySelector(".game__choice-list");
+buttons.addEventListener("click", (e) => {
+  playRound(e.target.innerText, getComputerChoice());
+  computerShowScore.innerText = computerScore;
+  humanShowScore.innerText = humanScore;
+  getWinner();
+});

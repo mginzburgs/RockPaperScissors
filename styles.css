@@ -1,5 +1,6 @@
 html {
   font-family: "Futura", "Helvetica", sans-serif;
+  height: 100%;
 }
 
 body {
@@ -8,6 +9,9 @@ body {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
 }
 
 ul {
@@ -21,12 +25,15 @@ ul {
   margin: 0 auto;
   display: flex;
   flex-direction: column;
+  height: 100%;
 }
+
 .footer,
 .header {
   width: 100%;
   background-color: rgb(119, 49, 216);
   text-align: center;
+  flex-shrink: 0;
 }
 
 .header__heading {
@@ -37,6 +44,9 @@ ul {
 
 .main {
   padding: 40px;
+  display: flex;
+  margin: 0 auto;
+  flex: 1 0 auto;
 }
 
 .main__container {
@@ -50,10 +60,10 @@ ul {
   flex-direction: column;
   align-items: center;
   padding: 30px;
-  gap: 20px;
+  gap: 150px;
 }
 
-.game__choise-list {
+.game__choice-list {
   display: flex;
   justify-content: space-around;
   min-width: 300px;
@@ -65,7 +75,7 @@ ul {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  gap: 20px;
+  color: white;
 }
 
 .game__score-heading {
